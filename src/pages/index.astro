@@ -1,0 +1,251 @@
+---
+/*
+  ============================================================
+  HOME PAGE - index.astro
+  The main landing page with hero, about preview, and featured projects.
+  ============================================================
+*/
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+// Get featured projects (limit to 3)
+const allProjects = await getCollection('projects', ({ data }) => {
+  return data.draft !== true;
+});
+
+const featuredProjects = allProjects
+  .filter(project => project.data.featured)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3);
+---
+
+<Layout title="Home">
+  <!-- Hero Section -->
+  <section class="section bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto text-center animate-fade-in">
+        <!-- Greeting -->
+        <p class="text-primary-600 dark:text-primary-400 font-medium mb-4">
+          👋 Hello, I'm
+        </p>
+        
+        <!-- Name - PLACEHOLDER: This is your name -->
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+          <span class="text-gradient">Brian Kim</span>
+        </h1>
+        
+        <!-- Tagline - PLACEHOLDER: Update with your own tagline -->
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          Aspiring Engineer & Entrepreneur | IB Diploma Student
+        </p>
+        
+        <!-- Currently Section -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 mb-10">
+          <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          <span class="text-sm text-gray-600 dark:text-gray-300">
+            <!-- PLACEHOLDER: Update your current status -->
+            Currently: 11th Grade at The Village School, Houston TX
+          </span>
+        </div>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/projects" class="btn-primary">
+            View My Projects
+            <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a href="/resume" class="btn-outline">
+            Resume
+          </a>
+          <a href="/contact" class="btn-secondary">
+            Contact Me
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Preview Section -->
+  <section class="section">
+    <div class="container-custom">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Image/Visual -->
+        <div class="order-2 md:order-1">
+          <div class="relative">
+            <!-- PLACEHOLDER: Add your photo here -->
+            <!-- Replace with: <img src="/images/profile.jpg" alt="Brian Kim" class="..." /> -->
+            <div class="aspect-square rounded-2xl bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 flex items-center justify-center">
+              <div class="text-center p-8">
+                <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+                  <span class="text-5xl font-bold text-white">BK</span>
+                </div>
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                  <!-- PLACEHOLDER: Add your photo to /public/images/profile.jpg -->
+                  Add your photo here
+                </p>
+              </div>
+            </div>
+            
+            <!-- Decorative elements -->
+            <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary-500/10 dark:bg-primary-500/20 rounded-2xl -z-10"></div>
+            <div class="absolute -top-4 -left-4 w-16 h-16 bg-accent-500/10 dark:bg-accent-500/20 rounded-xl -z-10"></div>
+          </div>
+        </div>
+        
+        <!-- Text Content -->
+        <div class="order-1 md:order-2">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+            About Me
+          </h2>
+          
+          <!-- PLACEHOLDER: Write your own bio here -->
+          <div class="space-y-4 text-gray-600 dark:text-gray-300">
+            <p>
+              I'm an 11th-grade international student at <strong class="text-gray-900 dark:text-white">The Village School</strong> in Houston, Texas, pursuing the <strong class="text-gray-900 dark:text-white">IB Diploma Program</strong>.
+            </p>
+            <p>
+              My passions lie at the intersection of <strong class="text-gray-900 dark:text-white">Engineering</strong>, <strong class="text-gray-900 dark:text-white">Business</strong>, and <strong class="text-gray-900 dark:text-white">STEM</strong>. I love solving complex problems, building things that matter, and leading teams toward meaningful goals.
+            </p>
+            <p>
+              When I'm not studying, you'll find me working on engineering projects, developing business ideas, or mentoring younger students in STEM subjects.
+            </p>
+          </div>
+          
+          <a href="/about" class="inline-flex items-center mt-6 text-primary-600 dark:text-primary-400 font-medium hover:underline">
+            Learn more about me
+            <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Projects Section -->
+  <section class="section bg-gray-50 dark:bg-gray-900">
+    <div class="container-custom">
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+          Featured Projects
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          A selection of my recent work in engineering, business, and STEM initiatives.
+        </p>
+      </div>
+      
+      <!-- Projects Grid -->
+      {featuredProjects.length > 0 ? (
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredProjects.map((project) => (
+            <ProjectCard
+              title={project.data.title}
+              description={project.data.description}
+              slug={project.slug}
+              tags={project.data.tags}
+              tools={project.data.tools}
+              thumbnail={project.data.thumbnail}
+              date={project.data.date}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <p class="text-gray-500 dark:text-gray-400">
+            No featured projects yet. Add projects in <code class="text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">/src/content/projects/</code> and set <code class="text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">featured: true</code> in the frontmatter.
+          </p>
+        </div>
+      )}
+      
+      <!-- View All Link -->
+      <div class="text-center mt-10">
+        <a href="/projects" class="btn-outline">
+          View All Projects
+          <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Interests / What I'm Into Section -->
+  <section class="section">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center text-gray-900 dark:text-white">
+          What I'm Passionate About
+        </h2>
+        
+        <!-- Interest Cards -->
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Engineering -->
+          <div class="card p-6 text-center">
+            <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
+              <svg class="w-7 h-7 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Engineering</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              Designing solutions to real-world problems through innovative engineering approaches.
+            </p>
+          </div>
+          
+          <!-- Business -->
+          <div class="card p-6 text-center">
+            <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-accent-100 dark:bg-accent-900/30 flex items-center justify-center">
+              <svg class="w-7 h-7 text-accent-600 dark:text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Business</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              Developing entrepreneurial skills and understanding how to create value in the marketplace.
+            </p>
+          </div>
+          
+          <!-- STEM -->
+          <div class="card p-6 text-center">
+            <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+              <svg class="w-7 h-7 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">STEM Research</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              Conducting scientific investigations and applying the scientific method to understand our world.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="section bg-gradient-to-r from-primary-600 to-primary-700 dark:from-primary-700 dark:to-primary-800">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+          Let's Connect
+        </h2>
+        <p class="text-primary-100 mb-8 text-lg">
+          Interested in collaborating on a project or just want to say hello? I'd love to hear from you!
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/contact" class="btn bg-white text-primary-600 hover:bg-gray-100 focus-visible:ring-white">
+            Get In Touch
+          </a>
+          <a href="/resume" class="btn border-2 border-white text-white hover:bg-white/10 focus-visible:ring-white">
+            View Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

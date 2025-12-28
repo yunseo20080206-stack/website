@@ -1,0 +1,162 @@
+/* ============================================================
+   GLOBAL STYLES
+   This file contains base styles and utility classes.
+   Tailwind CSS is automatically included via the Astro integration.
+   ============================================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+@layer base {
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Base body styles */
+  body {
+    @apply font-sans antialiased;
+    @apply bg-white text-gray-900;
+    @apply dark:bg-gray-950 dark:text-gray-100;
+    @apply transition-colors duration-300;
+  }
+
+  /* Typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  /* Link styles */
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-500;
+  }
+}
+
+@layer components {
+  /* Container utility */
+  .container-custom {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center;
+    @apply px-6 py-3 rounded-lg font-medium;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn;
+    @apply bg-primary-600 text-white;
+    @apply hover:bg-primary-700;
+    @apply focus-visible:ring-primary-500;
+    @apply dark:bg-primary-500 dark:hover:bg-primary-600;
+  }
+
+  .btn-secondary {
+    @apply btn;
+    @apply bg-gray-100 text-gray-900;
+    @apply hover:bg-gray-200;
+    @apply focus-visible:ring-gray-500;
+    @apply dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700;
+  }
+
+  .btn-outline {
+    @apply btn;
+    @apply border-2 border-primary-600 text-primary-600;
+    @apply hover:bg-primary-600 hover:text-white;
+    @apply focus-visible:ring-primary-500;
+    @apply dark:border-primary-400 dark:text-primary-400;
+    @apply dark:hover:bg-primary-500 dark:hover:text-white;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-xl;
+    @apply border border-gray-200;
+    @apply shadow-sm;
+    @apply transition-all duration-300;
+    @apply dark:bg-gray-900 dark:border-gray-800;
+  }
+
+  .card-hover {
+    @apply card;
+    @apply hover:shadow-lg hover:border-gray-300;
+    @apply hover:-translate-y-1;
+    @apply dark:hover:border-gray-700;
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  /* Tag/Badge styles */
+  .tag {
+    @apply inline-flex items-center;
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+    @apply bg-primary-100 text-primary-700;
+    @apply dark:bg-primary-900/30 dark:text-primary-300;
+  }
+
+  /* Prose styles for markdown content */
+  .prose-custom {
+    @apply prose prose-lg max-w-none;
+    @apply prose-headings:font-heading prose-headings:font-semibold;
+    @apply prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline;
+    @apply prose-img:rounded-xl prose-img:shadow-lg;
+    @apply dark:prose-invert;
+    @apply dark:prose-a:text-primary-400;
+  }
+}
+
+@layer utilities {
+  /* Text gradient utility */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-600 to-accent-600;
+    @apply dark:from-primary-400 dark:to-accent-400;
+  }
+
+  /* Subtle animation */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

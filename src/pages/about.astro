@@ -1,0 +1,319 @@
+---
+/*
+  ============================================================
+  ABOUT PAGE - about.astro
+  Detailed bio, education, skills, and extracurriculars.
+  PLACEHOLDER: Update all content with your real information.
+  ============================================================
+*/
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="About Me" 
+  description="Learn more about Brian Kim - an 11th grade IB student passionate about engineering, business, and STEM."
+>
+  <!-- Hero Section -->
+  <section class="section bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center text-gray-900 dark:text-white">
+          About Me
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto">
+          An international student with a passion for building, creating, and leading.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Bio Section -->
+  <section class="section">
+    <div class="container-custom">
+      <div class="grid md:grid-cols-5 gap-12 items-start">
+        <!-- Photo Column -->
+        <div class="md:col-span-2">
+          <div class="sticky top-24">
+            <!-- PLACEHOLDER: Add your photo here -->
+            <!-- Replace the div below with: <img src="/images/profile.jpg" alt="Brian Kim" class="rounded-2xl shadow-lg w-full" /> -->
+            <div class="aspect-[4/5] rounded-2xl bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 flex items-center justify-center shadow-lg">
+              <div class="text-center p-8">
+                <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+                  <span class="text-4xl font-bold text-white">BK</span>
+                </div>
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                  Your photo here<br/>
+                  <code class="text-xs">/public/images/profile.jpg</code>
+                </p>
+              </div>
+            </div>
+            
+            <!-- Currently / Now Section -->
+            <div class="mt-6 card p-5">
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                Currently
+              </h3>
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <!-- PLACEHOLDER: Update these items -->
+                <li class="flex items-start gap-2">
+                  <span>📍</span>
+                  <span>Houston, Texas</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span>🎓</span>
+                  <span>11th Grade, IB Diploma Program</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span>📚</span>
+                  <span>Working on Extended Essay</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span>🔬</span>
+                  <span>Researching sustainable engineering</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Content Column -->
+        <div class="md:col-span-3 space-y-12">
+          <!-- Biography -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">My Story</h2>
+            
+            <!-- PLACEHOLDER: Write your own biography here -->
+            <div class="prose prose-lg dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
+              <p>
+                Hello! I'm Brian Kim, an 11th-grade international student at The Village School in Houston, Texas. I'm currently pursuing the IB Diploma Program, which has challenged me to think critically, work collaboratively, and develop a global perspective.
+              </p>
+              <p>
+                My journey into engineering and STEM began when I was young—I was always the kid taking apart gadgets to see how they worked (and sometimes successfully putting them back together). This curiosity evolved into a genuine passion for problem-solving and innovation.
+              </p>
+              <p>
+                Beyond academics, I'm deeply interested in entrepreneurship and business. I believe that the best solutions are those that not only work technically but also create real value for people. This intersection of engineering and business thinking drives much of my project work.
+              </p>
+              <p>
+                Looking ahead, I'm excited to pursue higher education in engineering or a related STEM field, with a minor in business or entrepreneurship. My goal is to develop solutions that address real-world challenges while building sustainable ventures.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Education -->
+          <div>
+            <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Education</h2>
+            
+            <div class="card p-6">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  </svg>
+                </div>
+                <div>
+                  <!-- PLACEHOLDER: Update with your school information -->
+                  <h3 class="font-semibold text-lg text-gray-900 dark:text-white">The Village School</h3>
+                  <p class="text-primary-600 dark:text-primary-400 font-medium">IB Diploma Programme</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Houston, TX • Class of 2026</p>
+                  
+                  <div class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <p><strong>IB Subjects (HL):</strong> Physics, Mathematics AA, Economics</p>
+                    <p><strong>IB Subjects (SL):</strong> English A, Korean B, Chemistry</p>
+                    <p><strong>GPA:</strong> X.XX / 4.0 (Placeholder - update with your GPA)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Skills -->
+          <div>
+            <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Skills & Tools</h2>
+            
+            <div class="grid sm:grid-cols-2 gap-4">
+              <!-- Technical Skills -->
+              <div class="card p-5">
+                <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Technical Skills</h3>
+                <!-- PLACEHOLDER: Update with your actual skills -->
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag">CAD Design</span>
+                  <span class="tag">3D Printing</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Data Analysis</span>
+                  <span class="tag">Arduino</span>
+                  <span class="tag">Lab Research</span>
+                </div>
+              </div>
+              
+              <!-- Soft Skills -->
+              <div class="card p-5">
+                <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Soft Skills</h3>
+                <!-- PLACEHOLDER: Update with your actual skills -->
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag">Leadership</span>
+                  <span class="tag">Public Speaking</span>
+                  <span class="tag">Team Collaboration</span>
+                  <span class="tag">Project Management</span>
+                  <span class="tag">Problem Solving</span>
+                </div>
+              </div>
+              
+              <!-- Tools & Software -->
+              <div class="card p-5">
+                <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Tools & Software</h3>
+                <!-- PLACEHOLDER: Update with your actual tools -->
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag">Fusion 360</span>
+                  <span class="tag">Excel</span>
+                  <span class="tag">Google Workspace</span>
+                  <span class="tag">Notion</span>
+                  <span class="tag">Canva</span>
+                </div>
+              </div>
+              
+              <!-- Languages -->
+              <div class="card p-5">
+                <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Languages</h3>
+                <!-- PLACEHOLDER: Update with your languages -->
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag">English (Fluent)</span>
+                  <span class="tag">Korean (Native)</span>
+                  <span class="tag">Spanish (Basic)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Extracurriculars / CAS -->
+          <div>
+            <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+              Activities & Leadership
+            </h2>
+            
+            <!-- PLACEHOLDER: Update with your actual activities -->
+            <div class="space-y-4">
+              <!-- Activity 1 -->
+              <div class="card p-5">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">STEM Mentorship Program</h3>
+                    <p class="text-primary-600 dark:text-primary-400 text-sm font-medium">Founder & Lead Mentor</p>
+                  </div>
+                  <span class="text-xs text-gray-500 dark:text-gray-400">2023 - Present</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  Founded a weekly tutoring program connecting high school students with middle schoolers to spark interest in STEM subjects.
+                </p>
+              </div>
+              
+              <!-- Activity 2 -->
+              <div class="card p-5">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">Robotics Club</h3>
+                    <p class="text-primary-600 dark:text-primary-400 text-sm font-medium">Vice President</p>
+                  </div>
+                  <span class="text-xs text-gray-500 dark:text-gray-400">2022 - Present</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  Lead team strategy sessions and coordinate competition preparation for regional robotics competitions.
+                </p>
+              </div>
+              
+              <!-- Activity 3 -->
+              <div class="card p-5">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">Business & Entrepreneurship Club</h3>
+                    <p class="text-primary-600 dark:text-primary-400 text-sm font-medium">Member</p>
+                  </div>
+                  <span class="text-xs text-gray-500 dark:text-gray-400">2023 - Present</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  Participate in case competitions and develop business plans for school and community initiatives.
+                </p>
+              </div>
+              
+              <!-- Activity 4 -->
+              <div class="card p-5">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">Community Service</h3>
+                    <p class="text-primary-600 dark:text-primary-400 text-sm font-medium">Volunteer</p>
+                  </div>
+                  <span class="text-xs text-gray-500 dark:text-gray-400">2022 - Present</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  100+ hours volunteering at local food bank, community clean-up events, and youth education programs.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Interests -->
+          <div>
+            <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+              Beyond Academics
+            </h2>
+            
+            <!-- PLACEHOLDER: Update with your personal interests -->
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              When I'm not working on projects or studying, you can find me:
+            </p>
+            
+            <ul class="grid sm:grid-cols-2 gap-3">
+              <li class="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                <span class="text-xl">📸</span>
+                <span>Photography & videography</span>
+              </li>
+              <li class="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                <span class="text-xl">🎸</span>
+                <span>Playing guitar</span>
+              </li>
+              <li class="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                <span class="text-xl">🏃</span>
+                <span>Running & fitness</span>
+              </li>
+              <li class="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                <span class="text-xl">📖</span>
+                <span>Reading (especially sci-fi)</span>
+              </li>
+              <li class="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                <span class="text-xl">✈️</span>
+                <span>Traveling & exploring</span>
+              </li>
+              <li class="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                <span class="text-xl">🎮</span>
+                <span>Strategy games</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="section bg-gray-50 dark:bg-gray-900">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+          Want to see my work?
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-8">
+          Check out my projects to see how I apply my skills and interests to real-world challenges.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/projects" class="btn-primary">
+            View Projects
+          </a>
+          <a href="/contact" class="btn-secondary">
+            Get In Touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
